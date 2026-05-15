@@ -1346,4 +1346,136 @@ final best = -0.0002
   [ckpt] 5/10 saved → res/floored_rtg_dtgp_levy/floored_rtg_dtgp.ckpt.json
 
 ── Trial 6/10  (seed=5) ────────────────────────────────────────
-  [DT-GP-floor05] running... 
+  [DT-GP-floor05] running... Using device: cpu, dtype: torch.float64
+Set random seed: 5
+Save directory set to: res
+Sampling 10 initial points using 'sobol' method...
+Initializing BoTorch GP ensemble...
+[DT-GP] iter=  1 | zero_steps=93.8%  mean_RTG=0.0911±0.3952  max_RTG=2.1410  avg_len=1.1  min_len=1  ls=[0.1, 1.0615, 2.4656, 5.0034, 7.2635]
+[DT-GP] iter=  1 | dt_loss=0.531381  target_RTG=2.1410  floor=0.0000(active=0)
+[DT-GP] iter=  2 | zero_steps=90.9%  mean_RTG=0.0297±0.1128  max_RTG=0.5292  avg_len=1.1  min_len=1  ls=[0.1, 2.0132, 2.0119, 2.0053, 4.0523]
+[DT-GP] iter=  2 | dt_loss=0.017194  target_RTG=1.0705  floor=1.0705(active=1)
+[DT-GP] iter=  3 | zero_steps=73.2%  mean_RTG=0.2552±0.5823  max_RTG=2.7384  avg_len=1.4  min_len=1  ls=[0.1, 2.0497, 2.0512, 2.0025, 1.8844]
+[DT-GP] iter=  3 | dt_loss=0.09941  target_RTG=2.7384  floor=1.0705(active=0)
+[DT-GP] iter=  4 | zero_steps=45.5%  mean_RTG=0.3889±0.4013  max_RTG=1.5798  avg_len=2.2  min_len=1  ls=[0.1, 2.0571, 2.0569, 2.0804, 2.0515]
+[DT-GP] iter=  4 | dt_loss=0.038737  target_RTG=1.5798  floor=1.3692(active=0)
+[DT-GP] iter=  5 | zero_steps=53.7%  mean_RTG=0.1026±0.1150  max_RTG=0.3682  avg_len=1.8  min_len=1  ls=[2.0418, 2.12, 2.1225, 2.1286, 2.1353]
+[DT-GP] iter=  5 | dt_loss=0.015437  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter=  6 | zero_steps=60.4%  mean_RTG=0.0346±0.0867  max_RTG=0.4656  avg_len=1.6  min_len=1  ls=[2.1561, 2.2238, 2.2212, 2.2144, 2.2119]
+[DT-GP] iter=  6 | dt_loss=0.033013  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter=  7 | zero_steps=50.9%  mean_RTG=0.0188±0.0197  max_RTG=0.0776  avg_len=1.9  min_len=1  ls=[2.2324, 2.2325, 2.2357, 2.2408, 2.2412]
+[DT-GP] iter=  7 | dt_loss=0.002408  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter=  8 | zero_steps=88.2%  mean_RTG=0.0021±0.0056  max_RTG=0.0226  avg_len=1.1  min_len=1  ls=[2.189, 2.1944, 2.1947, 2.1947, 2.1952]
+[DT-GP] iter=  8 | dt_loss=0.005504  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter=  9 | zero_steps=76.9%  mean_RTG=0.0091±0.0407  max_RTG=0.2277  avg_len=1.3  min_len=1  ls=[2.0042, 2.0056, 2.0058, 2.0055, 2.0054]
+[DT-GP] iter=  9 | dt_loss=0.230095  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 10 | zero_steps=71.4%  mean_RTG=0.0044±0.0086  max_RTG=0.0346  avg_len=1.4  min_len=1  ls=[2.0553, 2.0554, 2.0554, 2.0554, 2.0554]
+[DT-GP] iter= 10 | dt_loss=0.003163  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 11 | zero_steps=66.7%  mean_RTG=0.0039±0.0062  max_RTG=0.0202  avg_len=1.5  min_len=1  ls=[2.0193, 2.0192, 2.0217, 2.0217, 2.0217]
+[DT-GP] iter= 11 | dt_loss=0.003224  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 12 | zero_steps=65.2%  mean_RTG=0.0058±0.0073  max_RTG=0.0226  avg_len=1.5  min_len=1  ls=[2.0029, 2.0029, 2.0037, 2.0037, 2.0037]
+[DT-GP] iter= 12 | dt_loss=0.003165  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 13 | zero_steps=63.8%  mean_RTG=0.0045±0.0058  max_RTG=0.0200  avg_len=1.6  min_len=1  ls=[1.9981, 1.9981, 1.9978, 1.9978, 1.9978]
+[DT-GP] iter= 13 | dt_loss=0.004992  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 14 | zero_steps=62.5%  mean_RTG=0.0047±0.0067  max_RTG=0.0210  avg_len=1.6  min_len=1  ls=[1.9987, 1.9987, 1.999, 1.999, 1.999]
+[DT-GP] iter= 14 | dt_loss=0.003003  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 15 | zero_steps=65.2%  mean_RTG=0.0055±0.0078  max_RTG=0.0321  avg_len=1.5  min_len=1  ls=[1.997, 1.997, 1.9968, 1.9968, 1.9968]
+[DT-GP] iter= 15 | dt_loss=0.003137  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 16 | zero_steps=63.8%  mean_RTG=0.0031±0.0043  max_RTG=0.0138  avg_len=1.6  min_len=1  ls=[1.9979, 1.9979, 1.9981, 1.9981, 1.9981]
+[DT-GP] iter= 16 | dt_loss=0.004502  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 17 | zero_steps=62.5%  mean_RTG=0.0048±0.0082  max_RTG=0.0391  avg_len=1.6  min_len=1  ls=[1.9966, 1.9966, 1.9965, 1.9965, 1.9965]
+[DT-GP] iter= 17 | dt_loss=0.004174  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 18 | zero_steps=68.2%  mean_RTG=0.0041±0.0073  max_RTG=0.0259  avg_len=1.5  min_len=1  ls=[1.9982, 1.9982, 1.9983, 1.9983, 1.9983]
+[DT-GP] iter= 18 | dt_loss=0.004005  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 19 | zero_steps=61.2%  mean_RTG=0.0040±0.0056  max_RTG=0.0182  avg_len=1.6  min_len=1  ls=[1.9972, 1.9972, 1.9971, 1.9971, 1.9971]
+[DT-GP] iter= 19 | dt_loss=0.005191  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 20 | zero_steps=61.2%  mean_RTG=0.0045±0.0065  max_RTG=0.0192  avg_len=1.6  min_len=1  ls=[1.9978, 1.9978, 1.9978, 1.9978, 1.9978]
+[DT-GP] iter= 20 | dt_loss=0.006294  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 21 | zero_steps=62.5%  mean_RTG=0.0050±0.0071  max_RTG=0.0256  avg_len=1.6  min_len=1  ls=[1.9968, 1.9968, 1.9967, 1.9967, 1.9967]
+[DT-GP] iter= 21 | dt_loss=0.005932  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 22 | zero_steps=69.8%  mean_RTG=0.0025±0.0043  max_RTG=0.0170  avg_len=1.4  min_len=1  ls=[1.9982, 1.9982, 1.9982, 1.9982, 1.9982]
+[DT-GP] iter= 22 | dt_loss=0.008795  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 23 | zero_steps=73.2%  mean_RTG=0.0033±0.0056  max_RTG=0.0213  avg_len=1.4  min_len=1  ls=[1.9972, 1.9972, 1.9971, 1.9971, 1.9971]
+[DT-GP] iter= 23 | dt_loss=0.009069  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 24 | zero_steps=69.8%  mean_RTG=0.0044±0.0076  max_RTG=0.0285  avg_len=1.4  min_len=1  ls=[1.9982, 1.9982, 1.9982, 1.9982, 1.9982]
+[DT-GP] iter= 24 | dt_loss=0.005693  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 25 | zero_steps=69.8%  mean_RTG=0.0037±0.0050  max_RTG=0.0156  avg_len=1.4  min_len=1  ls=[1.9973, 1.9973, 1.9973, 1.9973, 1.9973]
+[DT-GP] iter= 25 | dt_loss=0.007512  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 26 | zero_steps=53.6%  mean_RTG=0.0051±0.0048  max_RTG=0.0129  avg_len=1.9  min_len=1  ls=[1.998, 1.998, 1.998, 1.998, 1.998]
+[DT-GP] iter= 26 | dt_loss=0.005187  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 27 | zero_steps=76.9%  mean_RTG=0.0027±0.0056  max_RTG=0.0189  avg_len=1.3  min_len=1  ls=[1.9976, 1.9976, 1.9976, 1.9976, 1.9976]
+[DT-GP] iter= 27 | dt_loss=0.010013  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 28 | zero_steps=61.2%  mean_RTG=0.0043±0.0049  max_RTG=0.0160  avg_len=1.6  min_len=1  ls=[1.9978, 1.9978, 1.9978, 1.9978, 1.9978]
+[DT-GP] iter= 28 | dt_loss=0.007928  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 29 | zero_steps=78.9%  mean_RTG=0.0019±0.0039  max_RTG=0.0175  avg_len=1.3  min_len=1  ls=[1.998, 1.998, 1.9979, 1.9979, 1.9979]
+[DT-GP] iter= 29 | dt_loss=0.001764  target_RTG=1.3692  floor=1.3692(active=1)
+[DT-GP] iter= 30 | zero_steps=63.8%  mean_RTG=0.0039±0.0074  max_RTG=0.0305  avg_len=1.6  min_len=1  ls=[2.0147, 2.0147, 2.0147, 2.0147, 2.0147]
+[DT-GP] iter= 30 | dt_loss=0.003156  target_RTG=1.3692  floor=1.3692(active=1)
+final best = -0.0000
+  [DT-GP-floor02] running... Using device: cpu, dtype: torch.float64
+Set random seed: 5
+Save directory set to: res
+Sampling 10 initial points using 'sobol' method...
+Initializing BoTorch GP ensemble...
+[DT-GP] iter=  1 | zero_steps=93.8%  mean_RTG=0.0911±0.3952  max_RTG=2.1410  avg_len=1.1  min_len=1  ls=[0.1, 1.0615, 2.4656, 5.0034, 7.2635]
+[DT-GP] iter=  1 | dt_loss=0.531381  target_RTG=2.1410  floor=0.0000(active=0)
+[DT-GP] iter=  2 | zero_steps=90.9%  mean_RTG=0.0297±0.1128  max_RTG=0.5292  avg_len=1.1  min_len=1  ls=[0.1, 2.0132, 2.0119, 2.0053, 4.0523]
+[DT-GP] iter=  2 | dt_loss=0.017194  target_RTG=0.5292  floor=0.4282(active=0)
+[DT-GP] iter=  3 | zero_steps=73.2%  mean_RTG=0.2559±0.5820  max_RTG=2.7541  avg_len=1.4  min_len=1  ls=[0.1, 2.0486, 2.0503, 2.0086, 1.8823]
+[DT-GP] iter=  3 | dt_loss=0.103298  target_RTG=2.7541  floor=0.4282(active=0)
+[DT-GP] iter=  4 | zero_steps=47.6%  mean_RTG=0.3519±0.3767  max_RTG=1.5629  avg_len=2.1  min_len=1  ls=[0.1, 2.084, 2.0797, 2.0871, 2.0557]
+[DT-GP] iter=  4 | dt_loss=0.036986  target_RTG=1.5629  floor=0.5508(active=0)
+[DT-GP] iter=  5 | zero_steps=52.7%  mean_RTG=0.1209±0.1844  max_RTG=0.9028  avg_len=1.8  min_len=1  ls=[2.3023, 2.1546, 2.1545, 2.158, 2.1644]
+[DT-GP] iter=  5 | dt_loss=0.015287  target_RTG=0.9028  floor=0.5508(active=0)
+[DT-GP] iter=  6 | zero_steps=65.2%  mean_RTG=0.0165±0.0451  max_RTG=0.2482  avg_len=1.5  min_len=1  ls=[2.1536, 2.1417, 2.1416, 2.143, 2.1472]
+[DT-GP] iter=  6 | dt_loss=0.01805  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter=  7 | zero_steps=76.9%  mean_RTG=0.0029±0.0061  max_RTG=0.0244  avg_len=1.3  min_len=1  ls=[2.1611, 2.1612, 2.1613, 2.1618, 2.1611]
+[DT-GP] iter=  7 | dt_loss=0.002182  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter=  8 | zero_steps=85.7%  mean_RTG=0.0010±0.0025  max_RTG=0.0116  avg_len=1.2  min_len=1  ls=[2.1788, 2.1691, 2.169, 2.1689, 2.17]
+[DT-GP] iter=  8 | dt_loss=0.004581  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter=  9 | zero_steps=90.9%  mean_RTG=0.0003±0.0012  max_RTG=0.0067  avg_len=1.1  min_len=1  ls=[2.1904, 2.1861, 2.1862, 2.1863, 2.1851]
+[DT-GP] iter=  9 | dt_loss=0.002984  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 10 | zero_steps=83.3%  mean_RTG=0.0028±0.0068  max_RTG=0.0255  avg_len=1.2  min_len=1  ls=[2.0864, 2.0861, 2.086, 2.086, 2.0864]
+[DT-GP] iter= 10 | dt_loss=0.003486  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 11 | zero_steps=81.1%  mean_RTG=0.0021±0.0047  max_RTG=0.0157  avg_len=1.2  min_len=1  ls=[2.0904, 2.0902, 2.0902, 2.0903, 2.0897]
+[DT-GP] iter= 11 | dt_loss=0.001862  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 12 | zero_steps=96.8%  mean_RTG=0.0003±0.0016  max_RTG=0.0088  avg_len=1.0  min_len=1  ls=[2.0857, 2.0859, 2.0859, 2.0859, 2.0862]
+[DT-GP] iter= 12 | dt_loss=0.001878  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 13 | zero_steps=90.9%  mean_RTG=0.0004±0.0014  max_RTG=0.0067  avg_len=1.1  min_len=1  ls=[2.0844, 2.0846, 2.0846, 2.0847, 2.0843]
+[DT-GP] iter= 13 | dt_loss=0.001849  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 14 | zero_steps=85.7%  mean_RTG=0.0024±0.0061  max_RTG=0.0269  avg_len=1.2  min_len=1  ls=[2.0854, 2.0856, 2.0856, 2.0856, 2.0859]
+[DT-GP] iter= 14 | dt_loss=0.002433  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 15 | zero_steps=96.8%  mean_RTG=0.0001±0.0006  max_RTG=0.0032  avg_len=1.0  min_len=1  ls=[2.0828, 2.0829, 2.0829, 2.083, 2.0827]
+[DT-GP] iter= 15 | dt_loss=0.001305  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 16 | zero_steps=93.8%  mean_RTG=0.0013±0.0053  max_RTG=0.0280  avg_len=1.1  min_len=1  ls=[2.0841, 2.0844, 2.0843, 2.0843, 2.0846]
+[DT-GP] iter= 16 | dt_loss=0.001034  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 17 | zero_steps=90.9%  mean_RTG=0.0011±0.0043  max_RTG=0.0224  avg_len=1.1  min_len=1  ls=[2.0826, 2.0827, 2.0827, 2.0827, 2.0825]
+[DT-GP] iter= 17 | dt_loss=0.019854  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 18 | zero_steps=71.4%  mean_RTG=0.0024±0.0037  max_RTG=0.0115  avg_len=1.4  min_len=1  ls=[2.0814, 2.0813, 2.0813, 2.0813, 2.0814]
+[DT-GP] iter= 18 | dt_loss=0.002686  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 19 | zero_steps=76.9%  mean_RTG=0.0020±0.0040  max_RTG=0.0131  avg_len=1.3  min_len=1  ls=[2.0647, 2.0654, 2.0654, 2.0654, 2.0654]
+[DT-GP] iter= 19 | dt_loss=0.002907  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 20 | zero_steps=75.0%  mean_RTG=0.0026±0.0044  max_RTG=0.0134  avg_len=1.3  min_len=1  ls=[2.0449, 2.0454, 2.0454, 2.0454, 2.0454]
+[DT-GP] iter= 20 | dt_loss=0.002883  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 21 | zero_steps=71.4%  mean_RTG=0.0045±0.0064  max_RTG=0.0225  avg_len=1.4  min_len=1  ls=[2.0368, 2.037, 2.037, 2.037, 2.0369]
+[DT-GP] iter= 21 | dt_loss=0.00123  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 22 | zero_steps=65.2%  mean_RTG=0.0032±0.0043  max_RTG=0.0142  avg_len=1.5  min_len=1  ls=[2.0245, 2.0245, 2.0245, 2.0245, 2.0245]
+[DT-GP] iter= 22 | dt_loss=0.003378  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 23 | zero_steps=68.2%  mean_RTG=0.0030±0.0047  max_RTG=0.0141  avg_len=1.5  min_len=1  ls=[2.0187, 2.0182, 2.0182, 2.0182, 2.0182]
+[DT-GP] iter= 23 | dt_loss=0.002674  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 24 | zero_steps=71.4%  mean_RTG=0.0033±0.0050  max_RTG=0.0168  avg_len=1.4  min_len=1  ls=[2.0195, 2.0192, 2.0192, 2.0192, 2.0192]
+[DT-GP] iter= 24 | dt_loss=0.002998  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 25 | zero_steps=69.8%  mean_RTG=0.0027±0.0050  max_RTG=0.0179  avg_len=1.4  min_len=1  ls=[2.017, 2.017, 2.017, 2.017, 2.017]
+[DT-GP] iter= 25 | dt_loss=0.004622  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 26 | zero_steps=69.8%  mean_RTG=0.0036±0.0059  max_RTG=0.0205  avg_len=1.4  min_len=1  ls=[2.0167, 2.0166, 2.0166, 2.0166, 2.0166]
+[DT-GP] iter= 26 | dt_loss=0.002701  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 27 | zero_steps=73.2%  mean_RTG=0.0029±0.0058  max_RTG=0.0211  avg_len=1.4  min_len=1  ls=[2.0157, 2.0157, 2.0157, 2.0157, 2.0157]
+[DT-GP] iter= 27 | dt_loss=0.003704  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 28 | zero_steps=58.8%  mean_RTG=0.0054±0.0076  max_RTG=0.0292  avg_len=1.7  min_len=1  ls=[2.0144, 2.0144, 2.0144, 2.0144, 2.0144]
+[DT-GP] iter= 28 | dt_loss=0.00179  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 29 | zero_steps=68.2%  mean_RTG=0.0035±0.0060  max_RTG=0.0210  avg_len=1.5  min_len=1  ls=[2.0142, 2.0142, 2.0142, 2.0142, 2.0142]
+[DT-GP] iter= 29 | dt_loss=0.007  target_RTG=0.5508  floor=0.5508(active=1)
+[DT-GP] iter= 30 | zero_steps=71.4%  mean_RTG=0.0041±0.0073  max_RTG=0.0256  avg_len=1.4  min_len=1  ls=[2.0129, 2.0129, 2.0129, 2.0129, 2.0129]
+[DT-GP] iter= 30 | dt_loss=0.007187  target_RTG=0.5508  floor=0.5508(active=1)
+final best = -0.0000
+  [DT-GP-floor01] running... 
