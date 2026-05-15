@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/pip install *)",
+      "Bash(grep -v \"^$\")",
+      "Bash(grep -r \"gpytorch\\\\|botorch\" /Users/sharkash/Desktop/TOPICS/DRO-aistats-submission --include=\"*.py\" -not -path \"*/.venv/*\")",
+      "Bash(grep -r \"ensemble\\\\|Ensemble\" /Users/sharkash/Desktop/TOPICS/DRO-aistats-submission --include=\"*.py\" -not -path \"*/.venv/*\")"
+    ]
+  }
+}

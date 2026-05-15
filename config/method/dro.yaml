@@ -1,0 +1,69 @@
+# This is a configuration file for a Decision Transformer with Bayesian Optimization.
+# General settings
+seed: 42
+save_dir: "res"
+verbose: True # 1 for verbose, 0 for silent, 2 for debug
+device: "cpu" # Will automatically fall back to "cpu" if CUDA is not available
+name: "dro"
+
+# GP model configuration
+gp:
+  kernel: "rbf"  # Options: rbf, matern, rq
+  noise_constraint: 1e-4
+  lengthscale_min: 0.1
+  lengthscale_max: 10.0
+  num_models: 5  # Number of GPs in the ensemble
+  verbose: false
+  retrain: false
+
+# Acquisition function configuration
+acquisition:
+  # function: "ei"  # Options: ei, ucb, pi, mes, rotate_acq
+  function: "rotate_acq"  
+  kappa: 2.0  # For UCB
+  ucb_lcb_kappa: 6.0  # For UCB and LCB
+  xi: 0.01  # For EI and PI
+  early_stop_threshold: 1e-4
+  constrain_ucb_lcb: True  # Constrain UCB and LCB to be within the domain
+
+# Decision Transformer configuration
+transformer:
+  hidden_size: 128
+  num_layers: 4
+  num_heads: 4
+  dropout: 0.1
+  lr: 1e-4
+  weight_decay: 1e-5
+  batch_size: 32
+  num_epochs: 100
+  max_seq_length: 20
+
+# Simulation configuration
+simulation:
+  num_rollouts: 10 # originally 50
+  max_rollout_length: 4 # originally 4
+  early_stop: true
+  verbose: false
+  log_true_trajectories: false  # Set to true to enable Setup B independent true trajectories (RQ2)
+  use_true_trajectories: false  # Set to true for DT-GT mode (train DT on true trajectories instead of GP-simulated)
+  target_rtg: null             # null = dynamic (use max_rtg from training batch); float = fixed constant (e.g. 1.0)
+  state_include_gp_params: true # true = include GP hyperparams in state (default);
+                               # false = state is [best_value, step_norm, best_position]
+                               # only; removes training/deployment inconsistency for DT-GT
+  rtg_mode: "dynamic"          # Options: "dynamic" | "fixed" | "floored_dynamic"
+                               #   dynamic         : target = max_rtg_from_batch (0 if all-zero)
+                               #   fixed           : target = target_rtg (requires target_rtg != null)
+                               #   floored_dynamic : target = max(max_rtg_from_batch, alpha*running_max_rtg)
+  rtg_alpha: null              # Required when rtg_mode="floored_dynamic"; floor = alpha * running_max_rtg
+  refit_steps_in_true_trajectory: 20  # Adam steps to refit GP hyperparameters per rollout step in DT-GT mode
+                                       # Set to 0 to disable (stale hyperparameters, faster but biased)
+
+# Bayesian Optimization configuration
+bo:
+  max_iterations: 30
+  input_dim: 2
+  domain_min: [-5.0, -5.0]  # List for each dimension
+  domain_max: [5.0, 5.0]    # List for each dimension
+  initial_points: 5
+  objective: "maximize"  # or "minimize"
+

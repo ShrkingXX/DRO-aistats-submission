@@ -1,0 +1,34 @@
+name: pfns4bo # Method name checked in main.py
+max_iterations: 30
+input_dim: 2
+domain_min: -5.0
+domain_max: 5.0
+initial_points: 5
+objective: "maximize"  # or "minimize"
+kappa: 2.0  # For UCB
+xi: 0.01  # For EI and PI
+seed: 42
+verbose: true
+device: "cpu" 
+save_dir: "res" 
+
+
+# Common BO parameters (most set dynamically in main.py)
+bo:
+  initial_sampling_method: sobol
+  max_iterations: 30
+  input_dim: 2
+  domain_min: [-5.0, -5.0]  # List for each dimension
+  domain_max: [5.0, 5.0]    # List for each dimension
+  initial_points: 5
+  objective: "maximize"  # or "minimize"
+
+# Acquisition settings (only function type used by PFN class)
+acquisition:
+  function: ei # 'ei', 'pi', or 'ucb' - passed to TransformerBOMethod
+
+# PFN specific parameters
+pfn:
+  model_path: ./model 
+  fit_input_warping: false # Set to true for mis-specified search spaces
+  pending_samples: 5000 # Number of random points to evaluate PFN acquisition on

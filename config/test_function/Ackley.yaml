@@ -1,0 +1,9 @@
+# https://www.sfu.ca/~ssurjano/ackley.html
+name: 'Ackley'
+description: 'Ackley function for testing'
+input_dim: 2
+domain_min: -32.768
+domain_max: 32.768
+noise_std: 0.01
+negate: true
+shift: 10.0

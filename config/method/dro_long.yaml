@@ -1,0 +1,46 @@
+seed: 42
+save_dir: res
+verbose: true
+device: cpu
+name: dro
+gp:
+  kernel: rbf
+  noise_constraint: 0.0001
+  lengthscale_min: 0.1
+  lengthscale_max: 10.0
+  num_models: 10
+  verbose: false
+  retrain: false
+acquisition:
+  function: rotate_acq
+  kappa: 2.0
+  ucb_lcb_kappa: 1.0
+  xi: 0.01
+  early_stop_threshold: 0.0001
+  constrain_ucb_lcb: true
+transformer:
+  hidden_size: 128
+  num_layers: 4
+  num_heads: 4
+  dropout: 0.1
+  lr: 0.0001
+  weight_decay: 1.0e-05
+  batch_size: 32
+  num_epochs: 100
+  max_seq_length: 20
+simulation:
+  num_rollouts: 40
+  max_rollout_length: 100
+  early_stop: true
+  verbose: false
+bo:
+  max_iterations: 30
+  input_dim: 2
+  domain_min:
+  - -5.0
+  - -5.0
+  domain_max:
+  - 5.0
+  - 5.0
+  initial_points: 5
+  objective: maximize

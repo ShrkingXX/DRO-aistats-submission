@@ -1,0 +1,13 @@
+  name: Bayesmark # Special name to trigger Bayesmark logic
+  # For 'Bayesmark', input_dim, domain_min, domain_max, negate are derived by the wrapper.
+  # noise_std can be specified if you want to add BoTorch-level observation noise
+  # on top of any inherent noise in the Bayesmark problem.
+  noise_std: 0.0
+
+  # --- Bayesmark Specific Configuration ---
+  # This section is only used if test_function.name is 'Bayesmark'
+  bayesmark_config:
+    model: "MLP-adam" # e.g., "ada", "kNN", "SVM", "DT", "RF", "MLP-adam", "MLP-sgd", "lasso", "linear"
+    dataset: "wine"   # e.g., "boston", "diabetes", "digits", "breast_cancer"
+    scorer: "acc"     # e.g., "mse", "mae" (for regression) / "nll", "acc" (for classification)
+    # bayesmark_path: null # Optional: Absolute path to folder with custom data or surrogate pickles

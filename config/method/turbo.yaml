@@ -1,0 +1,67 @@
+# conf/turbo_config.yaml
+name: "turbo"
+max_iterations: 30
+input_dim: 2
+domain_min: -5.0
+domain_max: 5.0
+initial_points: 5
+objective: "maximize"  # or "minimize"
+kappa: 2.0  # For UCB
+xi: 0.01  # For EI and PI
+seed: 42
+verbose: true
+device: "cpu" 
+save_dir: "res" # Hydra will create its own output directory structure by default
+
+# Bayesian Optimization configuration (to be overridden by the main config)
+bo:
+  max_iterations: 30
+  input_dim: 2
+  domain_min: [-5.0, -5.0]  # List for each dimension
+  domain_max: [5.0, 5.0]    # List for each dimension
+  initial_points: 5
+  objective: "maximize"  # or "minimize"
+  initial_sampling_method: sobol # Or lhs, random - as used by BaseBayesianOptimizer
+
+
+# GP model configuration
+gp:
+  noise_constraint: 1e-4
+  num_models: 5  # Number of GPs in the ensemble
+  verbose: false
+  retrain: false  
+  kernel: "matern" # Notebook uses MaternKernel
+  # GP hyperparameter training options used by fit_gpytorch_mll
+  optimizer: adam # Or lbfgs
+  lr: 0.01
+  train_iter: 100 # Iterations for GP hyperparameter optimization
+  fit_max_retries: 5 # Retries for GP fitting if it fails
+  # Constraints from notebook GP setup
+  noise_constraint_low: 1e-8
+  noise_constraint_high: 1e-3
+  lengthscale_constraint_low: 0.005
+  lengthscale_constraint_high: 4.0
+  # GPyTorch settings
+  max_cholesky_size: .inf # Use float('inf') equivalent in YAML if possible, or large number like 2000
+
+
+# Acquisition function settings - used by _generate_batch
+acquisition:
+  # <<: *acquisition_defaults # Example: inherit from anchors defined elsewhere
+  function: ts # 'ts' or 'ei' (as implemented in _generate_batch based on notebook)
+  # Options for optimize_acqf (if function: ei)
+  opt_restarts: 10
+  raw_samples: 512
+  optimizer_options: {"batch_limit": 5, "maxiter": 200}
+  # N_CANDIDATES for TS is set dynamically inside _generate_batch
+
+# TuRBO specific parameters - used by the TurboState dataclass and _update_state/_generate_batch
+turbo:
+  batch_size: 1 # (from notebook)
+  # success_tolerance & failure_tolerance are from notebook's TurboState definition
+  success_tolerance: 10 # Notebook uses 10
+  # failure_tolerance is calculated automatically in __post_init__ based on dim/batch_size
+  # Trust Region length parameters (relative to normalized space [0,1]^d)
+  length_init: 0.8   # Initial TR length (notebook default)
+  length_min: 0.000001 # Min TR length, 0.5**7 (notebook default)
+  length_max: 1.6        # Max TR length (notebook default)

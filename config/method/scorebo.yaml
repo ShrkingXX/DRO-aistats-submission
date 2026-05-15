@@ -1,0 +1,46 @@
+
+
+seed: 42
+save_dir: "res"
+verbose: True # 1 for verbose, 0 for silent, 2 for debug
+device: "cpu" # Will automatically fall back to "cpu" if CUDA is not available
+name: scorebo
+scorebo:
+  num_hyperparameter_samples_M: 4 
+  num_optima_samples_N: 2       
+  statistical_distance: "hellinger" # "hellinger", "wasserstein", "kl_divergence"
+  approximation_method: "moment_matching" # "moment_matching" or "monte_carlo"
+  # MCMC specific params if you implement full MCMC
+  mcmc_warmup_steps: 256
+  mcmc_thinning: 16
+  # Params for RFFs if used for sampling optima (from paper's appendix)
+  num_rff_features: 2048
+gp:
+  # Example of specifying LogNormal for lengthscale:
+  lengthscale_prior_mean: 0.0
+  lengthscale_prior_std: 1.732 # sqrt(3)
+  outputscale_prior_mean: 0.0
+  outputscale_prior_std: 1.732
+  noise_prior_mean: 0.0
+  noise_prior_std: 1.732
+acquisition:
+  # optimizer settings for the SCoreBO acquisition function itself
+  opt_restarts: 1
+  opt_samples: 16
+  acquisition:
+  optimizer_type: "discrete" # To signal using optimize_acqf_discrete
+  num_discrete_choices: 2000 # Number of discrete points to evaluate
+# Bayesian Optimization configuration
+bo:
+  max_iterations: 30
+  input_dim: 2
+  domain_min: [-5.0, -5.0]  # List for each dimension
+  domain_max: [5.0, 5.0]    # List for each dimension
+  initial_points: 5
+  objective: "maximize"  # or "minimize"
+
+hyperparameter_grid:
+  # For likelihood.noise (variance)
+  noise: {min: 0.001, max: 0.1, points: 2, log_scale: true}
+  outputscale: {min: 0.5, max: 2.0, points: 2, log_scale: true}
+  lengthscale: {min: 0.1, max: 1.0, points: 2, log_scale: true}

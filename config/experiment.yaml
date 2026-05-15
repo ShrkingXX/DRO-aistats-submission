@@ -1,0 +1,23 @@
+# exp.yaml - Experiment Configuration
+defaults:
+  - test_function: Ackley
+  # - test_function: LunarLander
+  # - test_function: Bayesmark
+  # - test_function: iaml_xgboost
+  - method: dro # default
+  # - method: scorebo
+  # - method: turbo
+  # - method: pfns4bo
+  # - method: standard_bo
+  - _self_  # Add _self_ here
+
+experiment_name: default                # A unique name for this run
+save_dir: ./res     # Base directory to store results
+
+experiment_params:
+  max_iterations: 30 # Number of BO iterations (after initial points)
+  num_trials: 3      # Number of independent runs per method/function
+  seed_start: 42     # Starting seed for reproducibility
+  initial_points: 5  # Number of initial random points to sample
+  objective: "maximize"  # or "minimize"
+  save_individual_trials: True # Save individual trials

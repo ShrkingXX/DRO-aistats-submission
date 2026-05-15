@@ -1,0 +1,34 @@
+# conf/standard_bo_config.yaml
+name: "bo"
+max_iterations: 30
+input_dim: 2
+domain_min: -5.0
+domain_max: 5.0
+initial_points: 5
+objective: "maximize"  # or "minimize"
+acquisition: "ei"  # Options: ei, ucb, pi
+kappa: 2.0  # For UCB
+xi: 0.01  # For EI and PI
+seed: 42
+verbose: true
+device: "cpu" 
+save_dir: "res" # Hydra will create its own output directory structure by default
+
+# Bayesian Optimization configuration (to be overridden by the main config)
+bo:
+  max_iterations: 30
+  input_dim: 2
+  domain_min: [-5.0, -5.0]  # List for each dimension
+  domain_max: [5.0, 5.0]    # List for each dimension
+  initial_points: 5
+  objective: "maximize"  # or "minimize"
+
+# GP model configuration
+gp:
+  kernel: "rbf"  # Options: rbf, matern, rq
+  noise_constraint: 1e-4
+  lengthscale_min: 0.1
+  lengthscale_max: 10.0
+  num_models: 5  # Number of GPs in the ensemble
+  verbose: false
+  retrain: false

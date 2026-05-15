@@ -1,0 +1,5 @@
+
+name: LunarLander
+negate: True # To maximize reward (BO minimizes -reward)
+noise_std: 0.01 # Example: Add some observation noise to the averaged reward from BO's perspective
+input_dim: 12
