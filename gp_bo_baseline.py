@@ -128,7 +128,7 @@ def _ensemble_logEI_candidate(ensemble, bounds, best_f, device, dtype):
 # ── Single trial ─────────────────────────────────────────────────────────────
 
 def run_trial(objective, bounds, initial_points, max_iterations,
-              seed, device="cpu", dtype=torch.float64):
+              seed, device="cpu", dtype=torch.float64, num_models=5):
     torch.manual_seed(seed); np.random.seed(seed)
 
     dim = bounds.shape[1]
@@ -150,7 +150,7 @@ def run_trial(objective, bounds, initial_points, max_iterations,
         running_best = max(running_best, v)
         best_so_far.append(running_best)
 
-    ensemble = _build_ensemble(data_x, data_y, device=device, dtype=dtype)
+    ensemble = _build_ensemble(data_x, data_y, num_models=num_models, device=device, dtype=dtype)
 
     for it in range(max_iterations):
         best_f = float(data_y.max())
@@ -179,6 +179,8 @@ def main():
     parser.add_argument("--max_iterations", type=int,   default=30)
     parser.add_argument("--seed_start",     type=int,   default=0)
     parser.add_argument("--save_dir",       default="res/gp_bo_baseline")
+    parser.add_argument("--num_models",     type=int,   default=5,
+                        help="Number of GPs in the ensemble (default: 5)")
     args = parser.parse_args()
 
     os.makedirs(args.save_dir, exist_ok=True)
@@ -212,7 +214,8 @@ def main():
             seed = args.seed_start + t
             print(f"Trial {t+1}/{args.num_trials}  (seed={seed})", end=" ... ", flush=True)
             best = run_trial(objective, bounds_t, args.initial_points,
-                             args.max_iterations, seed, device, dtype)
+                             args.max_iterations, seed, device, dtype,
+                             num_models=args.num_models)
             best_arr[t, :len(best)] = best[:total_evals]
             print(f"best={best[-1]:.4f}")
 

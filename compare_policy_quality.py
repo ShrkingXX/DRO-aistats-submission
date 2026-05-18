@@ -93,6 +93,7 @@ def build_config(
     ard: bool = False,
     target_rtg=None,
     kernel_type: str = "rbf_isotropic",
+    num_models: int = 5,
     dkl_hidden_dim: int = 32,
     dkl_latent_dim=None,
     dkl_n_iter: int = 100,
@@ -117,8 +118,9 @@ def build_config(
     cfg.simulation.log_true_trajectories = False   # not needed here
 
     # GP kernel settings
-    cfg.gp.kernel = kernel
-    cfg.gp.ard    = ard
+    cfg.gp.kernel      = kernel
+    cfg.gp.ard         = ard
+    cfg.gp.num_models  = num_models
 
     if kernel_type == "deep_kernel":
         cfg.gp.kernel_type      = "deep_kernel"
@@ -300,6 +302,8 @@ def main() -> None:
                         help="DKL learning rate")
     parser.add_argument("--dkl_weight_decay",  type=float, default=1e-2,
                         help="DKL weight decay for feature extractor")
+    parser.add_argument("--num_models",        type=int,   default=5,
+                        help="Number of GPs in the ensemble (default: 5)")
     args = parser.parse_args()
 
     if args.kernel_type != "rbf_isotropic" and args.save_dir == "res/policy_comparison":
@@ -397,6 +401,7 @@ def main() -> None:
             ard=args.ard,
             target_rtg=args.target_rtg,
             kernel_type=args.kernel_type,
+            num_models=args.num_models,
             dkl_hidden_dim=args.dkl_hidden_dim,
             dkl_latent_dim=args.dkl_latent_dim,
             dkl_n_iter=args.dkl_n_iter,
@@ -428,6 +433,7 @@ def main() -> None:
             ard=args.ard,
             target_rtg=args.target_rtg,
             kernel_type=args.kernel_type,
+            num_models=args.num_models,
             dkl_hidden_dim=args.dkl_hidden_dim,
             dkl_latent_dim=args.dkl_latent_dim,
             dkl_n_iter=args.dkl_n_iter,
